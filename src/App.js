@@ -1,18 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Book from './components/Book';
+
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+         <div>Story Time</div>
+         </div>
+
+        <h2>Your Books</h2>
+        {/*
+        <ul>
+          <li>Treasure Island by Robert Louis Stevenson</li>
+          <li>Go Dog Go by Dr.Seuss</li>
+        </ul> */}
+        <ul>
+          <Book
+            title="Treasure Island"
+            author="Robert Louis Stevenson"
+          />
+          <Book
+            title="Go Dog Go"
+            author="Dr. Seuss"
+          />
+        </ul>
+        {/*
+        <form action="/">
+          <input type="text" placeholder="Title"/>
+          <input type="text" name="lastname" placeholder="Author"/>
+          <input type="submit" value="Submit"/>
+         </form> */}
       </div>
     );
   }

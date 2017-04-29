@@ -1,0 +1,11 @@
+.favorite {
+  display: inline-block;
+  background-color: #dfdfdf;
+  height: 16px;
+  width: 16px;
+  border-radius: 8px;
+  margin: 6px;
+}
+.favorite.enabled {
+  background-color: tomato;
+}
