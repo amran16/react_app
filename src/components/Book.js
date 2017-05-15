@@ -7,6 +7,7 @@ class Book extends Component {
   static propTypes = {
     title: React.PropTypes.string.isRequired,
     author: React.PropTypes.string.isRequired,
+    description: React.PropTypes.string,
   }
   constructor(props) {
   super(props);
@@ -33,8 +34,8 @@ class Book extends Component {
          />
         {this.props.title}
         </div>
-        <div>
-         {`by ${this.props.author}`}
+        <div className="description">
+          {this.props.description}
         </div>
       </li>
     );

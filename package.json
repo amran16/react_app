@@ -11,6 +11,8 @@
     "react-scripts": "0.9.5"
   },
   "dependencies": {
+    "axios": "^0.16.1",
+    "dotenv": "^4.0.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },

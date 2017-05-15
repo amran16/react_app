@@ -1,38 +1,60 @@
+require('dotenv').config()
 import React, { Component } from 'react';
 import Book from './components/Book';
-
+import Add from './components/Add';
 import './App.css';
 
+
 class App extends Component {
+
+ constructor(props){
+   super(props);
+
+   this.state = {
+     books: [
+       {
+         title: 'Treasure Island',
+         description: 'Pirates and stuff, arr!',
+         author: 'Robert Louis Stevenson',
+       },
+       {
+         title: 'Go Dog Go',
+         description: 'A riveting tale of the fast paced life of the modern canine.',
+         author: 'Dr. Seuss'
+       }
+     ],
+   };
+ }
+
+ onAddBook = (book) => {
+   this.setState({
+     books: this.state.books.concat([book])
+   });
+ }
+
   render() {
     return (
        <div className="App">
         <div className="App-header">
          <div>Story Time</div>
          </div>
+          <h2>Your Books</h2>
 
-        <h2>Your Books</h2>
-        {/*
-        <ul>
-          <li>Treasure Island by Robert Louis Stevenson</li>
-          <li>Go Dog Go by Dr.Seuss</li>
-        </ul> */}
-        <ul>
-          <Book
-            title="Treasure Island"
-            author="Robert Louis Stevenson"
-          />
-          <Book
-            title="Go Dog Go"
-            author="Dr. Seuss"
-          />
+          <Add onAdd={this.onAddBook} />
+
+          <ul>
+           {
+             this.state.books.map(book =>
+               <Book
+                 key={book.title}
+                 title={book.title}
+                 author={book.author}
+                 description={book.description}
+               />
+             )
+           }
         </ul>
-        {/*
-        <form action="/">
-          <input type="text" placeholder="Title"/>
-          <input type="text" name="lastname" placeholder="Author"/>
-          <input type="submit" value="Submit"/>
-         </form> */}
+
       </div>
     );
   }
